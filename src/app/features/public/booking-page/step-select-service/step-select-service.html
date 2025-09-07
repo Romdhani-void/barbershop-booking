@@ -1,0 +1,25 @@
+<section class="panel">
+  <h2><span>2)</span> Pick a Service</h2>
+
+  @if (!barberId) {
+    <p class="hint">Please select a barber first.</p>
+  } @else {
+    <div class="service-list">
+      <button class="service-btn" (click)="choose('svc-haircut')">
+        <div class="title">
+          <strong>Haircut</strong>
+          <small>30 minutes</small>
+        </div>
+        <span class="price">HUF 5800</span>
+      </button>
+
+      <button class="service-btn" (click)="choose('svc-beard')">
+        <div class="title">
+          <strong>Beard Trim</strong>
+          <small>15 minutes</small>
+        </div>
+        <span class="price">HUF 3900</span>
+      </button>
+    </div>
+  }
+</section>

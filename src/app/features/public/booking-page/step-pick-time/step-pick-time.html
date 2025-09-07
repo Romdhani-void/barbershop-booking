@@ -1,0 +1,20 @@
+<section class="panel">
+  <h2><span>3)</span> Pick a Time</h2>
+
+  @if (!(barberId && serviceId)) {
+    <p class="hint">Please select a barber & service first.</p>
+  } @else {
+    <div class="time-slots">
+      <button
+        class="slot-btn"
+        (click)="pick('2025-09-03T10:00:00Z','2025-09-03T10:30:00Z')">
+        10:00
+      </button>
+      <button
+        class="slot-btn"
+        (click)="pick('2025-09-03T11:00:00Z','2025-09-03T11:30:00Z')">
+        11:00
+      </button>
+    </div>
+  }
+</section>

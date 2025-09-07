@@ -1,0 +1,50 @@
+.panel {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+
+  span {
+    color: #f2c43d;
+    margin-right: 0.4rem;
+  }
+}
+
+.hint {
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.time-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.slot-btn {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 0.7rem 1.2rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #f2c43d;
+    background: #222;
+  }
+
+  &:active {
+    background: #f2c43d;
+    color: #000;
+    border-color: #f2c43d;
+  }
+}

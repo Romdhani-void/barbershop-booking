@@ -1,0 +1,56 @@
+<section class="review">
+  <h2 class="title">
+    <span class="main">Review</span>
+    <span class="hl">and Confirm</span>
+  </h2>
+
+  <div class="summary">
+    <div class="row">
+      <div class="label">Barber</div>
+      <div class="value">{{ summary.barberId || '—' }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Service</div>
+      <div class="value">{{ summary.serviceId || '—' }}</div>
+    </div>
+
+    <div class="row">
+      <div class="label">Time</div>
+      <div class="value">
+        @if (summary.slot) {
+          <span class="time">
+            {{ summary.slot!.start | date: 'EEE, MMM d • HH:mm' }}
+            <span class="arrow">→</span>
+            {{ summary.slot!.end   | date: 'HH:mm' }}
+          </span>
+        } @else {
+          —
+        }
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="label">Customer</div>
+      <div class="value">
+        @if (summary.customer) {
+          <span>
+            <strong>{{ summary.customer!.name }}</strong>
+            <span class="dot">·</span>
+            {{ summary.customer!.phone }}
+          </span>
+          <div class="sub">{{ summary.customer!.email }}</div>
+        } @else {
+          —
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn confirm" type="button" (click)="onConfirm()" aria-label="Confirm booking">
+      <span>Confirm booking</span>
+      <span class="chev">›</span>
+    </button>
+  </div>
+</section>

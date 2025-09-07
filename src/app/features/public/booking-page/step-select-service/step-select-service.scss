@@ -1,0 +1,74 @@
+.panel {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+
+  span {
+    color: #f2c43d;
+    margin-right: 0.4rem;
+  }
+}
+
+.hint {
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+.service-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.service-btn {
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 1rem;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  .title {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    small {
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+  }
+
+  .price {
+    font-weight: bold;
+    color: #f2c43d;
+  }
+
+  &:hover {
+    border-color: #f2c43d;
+    background: #222;
+  }
+
+  &:active {
+    background: #f2c43d;
+    color: #000;
+
+    .price {
+      color: #000;
+    }
+  }
+}

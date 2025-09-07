@@ -1,0 +1,66 @@
+.panel {
+  background: #111;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+
+  span {
+    color: #f2c43d;
+    margin-right: 0.4rem;
+  }
+}
+
+.loading, .empty, .error { color: #fff; margin-top: 1rem; }
+
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 0.5rem .9rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.barber-list {
+  display: grid;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.barber-item .barber-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 0.8rem;
+  cursor: pointer;
+  text-align: left;
+  color: #fff;
+  transition: border .2s, background .2s;
+
+  &:hover { border-color: #f2c43d; background: #222; }
+  &:active { background: #f2c43d; color: #000; }
+
+  .avatar {
+    width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
+    &.placeholder { display:grid; place-items:center; background:#222; font-size:1.1rem; }
+  }
+
+  .info {
+    display: flex; flex-direction: column;
+    strong { font-size: 1rem; margin-bottom: .2rem; }
+    small { color: #aaa; font-size: .85rem; }
+    .next { color: #f2c43d; }
+  }
+}

@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+:root {
+  --accent: #f2c43d;   /* orange */
+  --ink: #f7f7f7;
+  --muted: #c6c9d0;
+  --panel: #0d0e10;
+  --panel-2: #121317;
+  --border: #1b1d23;
+  --nav-h: 30px;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
