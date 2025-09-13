@@ -1,0 +1,35 @@
+<section class="panel">
+  <h2><span>1)</span> Pick a Barber</h2>
+
+  @if (loading()) {
+    <div class="loading">Loading barbers…</div>
+  } @else if (error()) {
+    <div class="error">
+      {{ error() }}
+      <button type="button" class="btn ghost" (click)="load()">Retry</button>
+    </div>
+  } @else if (!barbers().length) {
+    <p class="empty">No barbers available.</p>
+  } @else {
+    <ul class="barber-list">
+      @for (b of barbers(); track b.id) {
+        <li class="barber-item">
+          <button type="button" class="barber-card" (click)="choose(b.id)">
+            @if (b.photoUrl) {
+              <img [src]="b.photoUrl" alt="{{ b.name }}" class="avatar" />
+            } @else {
+              <div class="avatar placeholder">👤</div>
+            }
+            <div class="info">
+              <strong>{{ b.name }}</strong>
+              <small>{{ b.specialties.join(', ') }}</small>
+              @if (b.nextAvailable) {
+                <small class="next">Next: {{ b.nextAvailable }}</small>
+              }
+            </div>
+          </button>
+        </li>
+      }
+    </ul>
+  }
+</section>

@@ -1,0 +1,50 @@
+<div class="auth-page">
+  <div class="bg"></div>
+
+  <div class="container">
+    <section class="card" aria-labelledby="page-title">
+      <header class="head">
+        <h1 id="page-title" class="title">
+          <span class="main">
+            <span class="white">My</span>
+            <span class="accent"> Booking</span>
+          </span>
+        </h1>
+      </header>
+
+      <div class="content">
+        <ng-container *ngIf="upcoming(); else noBooking">
+          <div class="item">
+            <div class="when">
+              <div class="date">{{ upcoming().startsAt | date:'EEE, MMM d' }}</div>
+              <div class="time">{{ upcoming().startsAt | date:'HH:mm' }} · {{ upcoming().durationMin }}m</div>
+            </div>
+
+            <div class="what">
+              <div class="service">{{ upcoming().serviceName }}</div>
+              <div class="meta">
+                <span class="chip">Barber: {{ upcoming().barberName }}</span>
+                <span class="chip">Location: {{ upcoming().location }}</span>
+              </div>
+            </div>
+
+            <div class="price">
+              {{ upcoming().priceHUF | currency:'HUF':'symbol-narrow':'1.0-0' }}
+            </div>
+
+            <div class="actions">
+              <button class="btn danger" type="button" (click)="cancel(upcoming())">Cancel</button>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #noBooking>
+          <div class="empty">
+            <p>No upcoming booking.</p>
+            <button class="btn submit" routerLink="/book">Book Now</button>
+          </div>
+        </ng-template>
+      </div>
+    </section>
+  </div>
+</div>

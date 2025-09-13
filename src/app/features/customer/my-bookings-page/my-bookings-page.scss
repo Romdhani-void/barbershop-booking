@@ -1,0 +1,114 @@
+:root {
+  --accent: orange;
+  --ink: #ffffff;
+  --muted: #c9c9c9;
+  --panel: #111217;
+  --panel-2: #161822;
+  --border: #262a36;
+}
+
+.auth-page {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  color: var(--ink);
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(800px 400px at 10% 10%, rgba(255,165,0,0.15), transparent 60%),
+      linear-gradient(180deg, #0c0d12, #0a0b10 60%, #0a0b10);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 700px);
+  }
+
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 1.5rem;
+  }
+
+  .head {
+    margin-bottom: 1rem;
+    .title {
+      .main { display: inline-flex; gap: .25rem; }
+      .white { color: #fff; font-size: 2rem; }
+      .accent { color: var(--accent); font-size: 2rem; }
+    }
+  }
+
+  .item {
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    display: grid;
+    gap: .75rem;
+  }
+
+  .when .date { font-weight: 600; }
+  .when .time { color: var(--muted); font-size: .9rem; }
+
+  .what .service { font-weight: 600; margin-bottom: .25rem; }
+  .what .meta { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .chip {
+    background: #1b1e28;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: .25rem .55rem;
+    font-size: .8rem;
+    color: var(--muted);
+  }
+
+  .price {
+    font-weight: 700;
+    letter-spacing: .3px;
+  }
+
+  .actions {
+    display: flex;
+    gap: .5rem;
+  }
+
+  .btn {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: .55rem .85rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: #1b1e28;
+    color: #fff;
+
+    &.submit {
+      background: linear-gradient(180deg, #2a2f41, #1e2333);
+      border-color: #3a3f55;
+      color: var(--accent);
+    }
+
+    &.danger {
+      background: rgba(255, 75, 75, 0.12);
+      border-color: #4a1d1d;
+      color: #ff9b9b;
+    }
+  }
+
+  .empty {
+    margin-top: 1rem;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+
+    p { color: var(--muted); margin-bottom: .75rem; }
+  }
+}

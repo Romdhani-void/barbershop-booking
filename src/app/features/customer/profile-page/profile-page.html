@@ -1,0 +1,86 @@
+<div class="auth-page">
+  <div class="bg"></div>
+
+  <div class="container">
+    <section class="card" aria-labelledby="page-title">
+      <header class="head">
+        <h1 id="page-title" class="title">
+          <span class="main">
+            <span class="white">My</span>
+            <span class="accent"> Profile</span>
+          </span>
+        </h1>
+        <p class="sub accent">Manage your personal info and preferences</p>
+      </header>
+
+      <form class="form" [formGroup]="form" (ngSubmit)="save()">
+        <!-- Avatar -->
+        <div class="avatar-row">
+          <div class="avatar">{{ initials() }}</div>
+          <div class="avatar-meta">
+            <div class="name">{{ form.get('fullName')?.value }}</div>
+            <div class="email">{{ form.get('email')?.value }}</div>
+            <button class="btn ghost small" type="button" (click)="changePassword()">Change Password</button>
+          </div>
+        </div>
+
+        <!-- Fields -->
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" type="text" formControlName="fullName" placeholder="Your name" />
+            <div class="err" *ngIf="form.controls.fullName.touched && form.controls.fullName.invalid">
+              Name is required (min 2 chars).
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+            <div class="hint">Email is managed by your account. Contact support to change.</div>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="tel" formControlName="phone" placeholder="+36 30 000 0000" />
+          </div>
+
+          <div class="field">
+            <label for="language">Language</label>
+            <select id="language" formControlName="language">
+              <option value="en">English</option>
+              <option value="hu">Magyar</option>
+              <option value="fr">Français</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="timezone">Time zone</label>
+            <select id="timezone" formControlName="timezone">
+              <option value="Europe/Budapest">Europe/Budapest</option>
+              <option value="Europe/Paris">Europe/Paris</option>
+              <option value="UTC">UTC</option>
+            </select>
+          </div>
+
+          <div class="field switch">
+            <label for="marketing">Email notifications</label>
+            <label class="toggle">
+              <input id="marketing" type="checkbox" formControlName="marketing" />
+              <span class="slider"></span>
+              <span class="toggle-label">Booking reminders & updates</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions">
+          <button class="btn ghost" type="button" (click)="reset()">Reset</button>
+          <button class="btn submit" type="submit" [disabled]="saving()">
+            {{ saving() ? 'Saving…' : 'Save Changes' }}
+          </button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

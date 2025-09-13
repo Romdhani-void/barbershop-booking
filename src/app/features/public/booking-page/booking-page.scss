@@ -1,0 +1,135 @@
+/* src/app/features/public/booking-page/booking-page.scss */
+
+/* Use same tokens you use on Prices page (fallbacks below) */
+:root{
+  --ink: #ebedf1;
+  --muted: #b7b9c2;
+  --accent: #f2c43d;   /* your yellow */
+  --panel: #141518;
+  --panel-2: #101114;
+  --border: rgba(255,255,255,.12);
+  --nav-h: var(--nav-h, 72px); /* already defined globally on your app */
+}
+
+.booking-page{
+  position: relative;
+  min-height: 100dvh;
+
+  /* 👇 add more breathing room from the top */
+  padding-top: calc(var(--nav-h) + 120px); /* 40px extra space */
+  scroll-padding-top: calc(var(--nav-h) + 40px);
+
+  color: var(--ink);
+  background:
+    radial-gradient(900px 520px at 12% -10%, #282828 0%, rgba(18,18,18,0) 60%),
+    linear-gradient(180deg, #101114 0%, #0a0b0d 100%);
+}
+
+
+.bg{
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(900px 480px at 85% -10%, rgba(255,255,255,.06), transparent 60%);
+  mix-blend-mode: normal;
+}
+
+.container{
+  width: 94vw; max-width: 1200px; margin-inline: auto;
+}
+
+/* ===== Heading like Prices ===== */
+.page-head{ margin: 8px 0 18px; }
+.title{
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 1000;
+  line-height: .92;
+  letter-spacing: .2px;
+  font-size: clamp(28px, 5.4vw, 56px);
+  color: var(--ink);
+}
+.title-main{ display:block; }
+.title-highlight{ display:block; color: var(--accent); }
+.subtitle{ color: var(--muted); margin: 6px 2px 0; }
+
+/* ===== Stepper (tabs -> dots underline like Prices) ===== */
+.stepper{
+  display: grid; grid-auto-flow: column; gap: 18px;
+  padding: 0 4px 10px; margin: 8px 0 14px;
+  border-bottom: 2px solid rgba(255,255,255,.08);
+  li{ list-style: none; }
+  button{
+    all: unset;
+    cursor: pointer;
+    position: relative;
+    padding: 6px 4px;
+    color: var(--muted);
+    font-weight: 900;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+
+    &.active{ color: var(--ink); }
+    &.done{ color: var(--accent); }
+
+    &.active::after, &.done::after{
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: -12px;
+      height: 3px; border-radius: 2px; background: currentColor;
+    }
+
+    &:focus-visible{
+      outline: 3px solid rgba(242,196,61,.35);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+  }
+}
+
+/* ===== Main card (matches panel glass from Prices) ===== */
+.card{
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: clamp(14px, 2.2vw, 22px);
+  min-height: 320px;
+  box-shadow: 0 16px 60px rgba(0,0,0,.45);
+}
+
+/* ===== Nav buttons (match Book Now) ===== */
+.nav{
+  display: flex; justify-content: flex-end; gap: 10px;
+  margin: 14px 2px 22px;
+}
+.btn{
+  display: inline-block;
+  font-weight: 900; letter-spacing: .3px;
+  padding: 10px 18px; border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--accent); color: #0b0c0f;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease, color .15s ease;
+  box-shadow: 0 8px 28px rgba(0,0,0,.4);
+  cursor: pointer;
+
+  &:hover{ transform: translateY(-1px); box-shadow: 0 12px 36px rgba(0,0,0,.5); }
+  &:disabled{ opacity: .55; cursor: not-allowed; }
+
+  &.ghost{
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--border);
+    box-shadow: none;
+    &:hover{ border-color: var(--accent); color: var(--accent); }
+  }
+}
+
+/* ===== Toast (same vibe) ===== */
+.toast{
+  position: fixed; left: 50%; bottom: 28px; transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  color: var(--ink);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  z-index: 9999;
+  font-weight: 900;
+}

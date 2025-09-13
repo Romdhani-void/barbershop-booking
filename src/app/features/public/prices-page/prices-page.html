@@ -1,0 +1,117 @@
+<section class="prices-page" (mouseenter)="pause()" (mouseleave)="resume()">
+  @for (s of slides; track $index) {
+    <div class="slide"
+         [class.active]="$index === currentIndex"
+         [class.dir-next]="lastDir === 'next'"
+         [class.dir-prev]="lastDir === 'prev'">
+      <div class="container">
+        <div class="slide-grid">
+
+          <!-- LEFT PANEL -->
+          <aside class="side-panel">
+            <div>
+              <div class="tag"></div>
+              <h3 class="panel-title">{{ s.left.title }}</h3>
+              <p class="panel-text">{{ s.left.blurb }}</p>
+            </div>
+          </aside>
+
+          <!-- HERO -->
+          <figure class="hero">
+            <img
+              [src]="s.hero.image"
+              [alt]="s.hero.title + ' ' + (s.hero.highlight || '')" />
+
+            <figcaption class="hero-caption">
+              <div class="hero-toprow">
+                <div class="price-pill">
+                  <span class="price">{{ s.hero.price }}</span>
+                  @if (s.hero.duration) {
+                    <span class="dur">• {{ s.hero.duration }}</span>
+                  }
+                </div>
+
+                <!-- BOOK NOW BUTTON -->
+                <a href="#services" class="book-btn">Book Now</a>
+              </div>
+
+              <h2 class="hero-title">
+                <span class="title-main">{{ s.hero.title }}</span>
+                <span class="title-highlight" *ngIf="s.hero.highlight">
+                  {{ s.hero.highlight }}
+                </span>
+              </h2>
+            </figcaption>
+          </figure>
+
+          <!-- RIGHT PANEL -->
+          <aside class="side-panel">
+            <div>
+              <div class="tag"></div>
+              <h3 class="panel-title">{{ s.right.title }}</h3>
+              <p class="panel-text">{{ s.right.blurb }}</p>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </div>
+  }
+
+  <!-- CONTROLS -->
+  <div class="controls" role="group" aria-label="Carousel controls">
+    <button
+      class="arrow left"
+      type="button"
+      (click)="prev()"
+      [disabled]="!loop && currentIndex === 0"
+      aria-label="Previous slide">‹</button>
+
+    <div class="dots" role="tablist" aria-label="Slides">
+      @for (_ of slides; track $index) {
+        <button
+          class="dot"
+          type="button"
+          role="tab"
+          [class.active]="$index === currentIndex"
+          [attr.aria-selected]="$index === currentIndex"
+          (click)="goTo($index)">
+          <span class="sr-only">Go to slide {{ $index + 1 }}</span>
+        </button>
+      }
+    </div>
+
+    <button
+      class="arrow right"
+      type="button"
+      (click)="next()"
+      [disabled]="!loop && currentIndex === slides.length - 1"
+      aria-label="Next slide">›</button>
+  </div>
+</section>
+
+<!-- SERVICES LIST -->
+<section id="services" class="services">
+  <div class="container">
+    <h2 class="services-title">
+      <span class="title-main">Our</span>
+      <span class="title-highlight">Services</span>
+    </h2>
+
+    <div class="services-grid" role="list">
+      @for (svc of services; track svc.name) {
+        <article class="service-card" role="listitem">
+          <header class="service-header">
+            <div class="service-icon"></div>
+            <h3 class="service-name">{{ svc.name }}</h3>
+          </header>
+          <div class="service-meta">
+            <span class="svc-duration">{{ svc.duration }}</span>
+            <span class="dot">•</span>
+            <span class="svc-price">{{ svc.price }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

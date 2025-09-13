@@ -1,0 +1,23 @@
+<section class="panel">
+  <h2><span>4)</span> Your Details</h2>
+  <p class="hint">We’ll use this to confirm your booking.</p>
+
+  <form #f="ngForm" (ngSubmit)="submit(f)" novalidate>
+    <div class="field">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" ngModel required placeholder="John Doe" />
+    </div>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" ngModel required placeholder="you@example.com" />
+    </div>
+
+    <div class="field">
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" ngModel required placeholder="+36 30 123 4567" />
+    </div>
+
+    <button type="submit" class="btn">Continue</button>
+  </form>
+</section>

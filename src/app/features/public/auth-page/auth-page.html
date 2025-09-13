@@ -1,0 +1,57 @@
+<div class="auth-page">
+  <div class="bg"></div>
+
+  <div class="container">
+    <section class="card" aria-labelledby="auth-title">
+      <header class="head">
+        <h1 id="auth-title" class="title">
+          <span class="main">
+            <span style="color: white; font-size: 2rem">Sign</span>
+            <span style="color: orange; font-size: 2rem"> In</span>
+          </span>
+        </h1>
+        <p class="sub" style="color: orange;">Authentication disabled in dev mode</p>
+      </header>
+
+      <form class="form">
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            [(ngModel)]="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+        </div>
+
+        <div class="field">
+          <label for="pwd">Password</label>
+          <input
+            id="pwd"
+            name="password"
+            type="password"
+            [(ngModel)]="password"
+            placeholder="••••••••"
+            autocomplete="current-password"
+          />
+        </div>
+
+        <button class="btn submit" type="button" (click)="submit()">Continue</button>
+
+        <!-- Quick dev navigation -->
+        <div class="quick-links">
+          <button class="btn submit" type="button" routerLink="/me">Go to Customer Area</button>
+          <button class="btn submit" type="button" routerLink="/barber">Go to Barber Area</button>
+          <button class="btn submit" type="button" routerLink="/admin">Go to Admin Area</button>
+        </div>
+
+        <div class="alt">
+          <a class="demo" href="#" (click)="$event.preventDefault(); demo()">Use demo account</a>
+          <a class="home" routerLink="/">Back to Home</a>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>

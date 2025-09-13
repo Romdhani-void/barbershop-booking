@@ -1,0 +1,25 @@
+<header class="nav">
+  <div class="nav__inner">
+    <!-- Logo + Text -->
+    <a class="nav__brand" routerLink="/">
+      <img
+        src="assets/images/barber-logo-removebg.png"
+        alt="Barber Shop Logo"
+        class="nav__logo"
+        loading="eager"
+        decoding="async"
+      />
+      <span class="nav__brand-text">
+        BARBER <span class="highlight">SHOP</span>
+      </span>
+    </a>
+
+    <!-- Links -->
+    <nav class="nav__links">
+      <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">HOME</a>
+      <a routerLink="/prices" routerLinkActive="is-active">PRICES</a>
+      <a routerLink="/booking" routerLinkActive="is-active">BOOKING</a>
+      <a routerLink="/auth" routerLinkActive="is-active">LOGIN</a>
+    </nav>
+  </div>
+</header>

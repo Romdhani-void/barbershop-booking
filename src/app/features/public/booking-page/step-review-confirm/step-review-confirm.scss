@@ -1,0 +1,76 @@
+:root{
+  --ink:#ebedf1;
+  --muted:#b7b9c2;
+  --accent:#f2c43d;
+  --panel:#141518;
+  --panel-2:#101114;
+  --border:rgba(255,255,255,.12);
+}
+
+.review{ display:flex; flex-direction:column; gap:14px; }
+
+/* Title matches your Prices style */
+.title{
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  font-weight: 1000;
+  line-height: .92;
+  letter-spacing: .2px;
+  font-size: clamp(22px, 3.6vw, 32px);
+  color: var(--ink);
+  .main{ display:block; }
+  .hl{ display:block; color: var(--accent); }
+}
+
+/* Summary block */
+.summary{
+  display:grid; gap: 10px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 8px 28px rgba(0,0,0,.35);
+}
+
+.row{
+  display:grid; grid-template-columns: 140px 1fr; gap:12px;
+  padding-bottom:10px; border-bottom:1px dashed var(--border);
+  &:last-child{ border-bottom:none; padding-bottom:0; }
+
+  .label{ color: var(--muted); font-weight: 800; text-transform: uppercase; letter-spacing:.3px; }
+  .value{ color: var(--ink); font-weight: 700; }
+  .sub{ color: var(--muted); font-weight: 600; margin-top: 2px; }
+  .dot{ opacity:.75; margin: 0 6px; }
+  .time{ white-space: nowrap; }
+  .arrow{ opacity:.7; padding: 0 6px; }
+}
+
+/* Actions */
+.actions{ display:flex; justify-content:flex-end; margin-top: 6px; }
+
+/* Brand pill button – no default UA styles */
+.btn{
+  -webkit-appearance: none; appearance: none;
+  border: none; outline: none; background: none;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 1000; letter-spacing: .3px; text-transform: none;
+
+  &.confirm{
+    background: var(--accent); color: #0b0c0f;
+    padding: 12px 20px; border-radius: 999px;
+    box-shadow: 0 10px 32px rgba(0,0,0,.45);
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+
+    .chev{ font-size: 22px; line-height: 0; transform: translateY(-1px); }
+
+    &:hover{ transform: translateY(-1px); box-shadow: 0 14px 40px rgba(0,0,0,.55); }
+    &:active{ transform: translateY(0); }
+    &:focus-visible{ outline: 3px solid rgba(242,196,61,.35); outline-offset: 2px; }
+  }
+}
+
+/* Responsive tighten */
+@media (max-width: 560px){
+  .row{ grid-template-columns: 1fr; }
+}
